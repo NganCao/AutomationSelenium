@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-06-15T20:11:24 ICT" name="Suite" finished-at="2023-06-15T20:11:39 ICT" duration-ms="14849">
+    <groups>
+    </groups>
+    <test started-at="2023-06-15T20:11:24 ICT" name="Demo" finished-at="2023-06-15T20:11:39 ICT" duration-ms="14849">
+      <class name="Testcases.ButtonClickTest">
+        <test-method is-config="true" signature="setupBrowser(java.lang.String)[pri:0, instance:Testcases.ButtonClickTest@1ddf84b8]" started-at="2023-06-15T20:11:25 ICT" name="setupBrowser" finished-at="2023-06-15T20:11:31 ICT" duration-ms="6720" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://webdriveruniversity.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBrowser -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Testcases.ButtonClickTest@1ddf84b8]" started-at="2023-06-15T20:11:31 ICT" name="setUp" finished-at="2023-06-15T20:11:31 ICT" duration-ms="31" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="navigateToButtonPage()[pri:1, instance:Testcases.ButtonClickTest@1ddf84b8]" started-at="2023-06-15T20:11:31 ICT" name="navigateToButtonPage" finished-at="2023-06-15T20:11:32 ICT" duration-ms="237" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToButtonPage -->
+        <test-method signature="check_general_infor()[pri:2, instance:Testcases.ButtonClickTest@1ddf84b8]" started-at="2023-06-15T20:11:32 ICT" name="check_general_infor" finished-at="2023-06-15T20:11:33 ICT" duration-ms="1167" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- check_general_infor -->
+        <test-method signature="check_thumbnail_sections()[pri:3, instance:Testcases.ButtonClickTest@1ddf84b8]" started-at="2023-06-15T20:11:33 ICT" name="check_thumbnail_sections" finished-at="2023-06-15T20:11:39 ICT" duration-ms="5970" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- check_thumbnail_sections -->
+        <test-method is-config="true" signature="end()[pri:0, instance:Testcases.ButtonClickTest@1ddf84b8]" started-at="2023-06-15T20:11:39 ICT" name="end" finished-at="2023-06-15T20:11:39 ICT" duration-ms="660" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- end -->
+      </class> <!-- Testcases.ButtonClickTest -->
+    </test> <!-- Demo -->
+  </suite> <!-- Suite -->
+</testng-results>
