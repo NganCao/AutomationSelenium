@@ -45,7 +45,7 @@ public class HomePage {
 	}
 		
 	public boolean verifyHomePageTitle () {
-		String expected = "WebDriverUniversity.com";
+		String expected = "WebDriverUniversity.comm";
 		return sp.getTitle().contains(expected);
 	}
 	
