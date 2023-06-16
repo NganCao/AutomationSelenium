@@ -30,5 +30,6 @@
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/Auto/poi-bin-5.2.3/lib/SparseBitSet-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/Auto/lib/log4j-api-2.20.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/Auto/lib/log4j-core-2.20.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/Auto/MonteScreenRecorder.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

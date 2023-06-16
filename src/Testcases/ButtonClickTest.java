@@ -2,13 +2,15 @@ package Testcases;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import Pages.ButtonPage;
 import Pages.HomePage;
-import Supports.ExcelHelpers;
+import Supports.CaptureHelpers;
 import Supports.Setup;
 import Supports.SupportMethods;
 
@@ -18,10 +20,11 @@ public class ButtonClickTest extends Setup {
 	private HomePage homePage;
 	private ButtonPage btnPage;
 	private SupportMethods support;
+	private CaptureHelpers capture;
 	private String currentWindow;
 	//excel file
 	private String fileName = "DataTest.xlsx";
-	private String excelPath = System.getProperty("user.home") + "\\eclipse-workspace\\Demo\\Data File\\";
+	private String excelPath = System.getProperty("user.dir") + "\\Data File\\";
 	private String sheetName = "Button Clicks";
 	
 	@BeforeClass
@@ -30,6 +33,7 @@ public class ButtonClickTest extends Setup {
 		homePage = new HomePage(driver);
 		btnPage = new ButtonPage(driver);
 		support = new SupportMethods(driver);
+		capture = new CaptureHelpers(driver);
 	}
 	
 	@Test (priority = 1)
@@ -60,5 +64,10 @@ public class ButtonClickTest extends Setup {
 //		excel.readExcelFile(excelPath + fileName, sheetName);
 		Assert.assertTrue(btnPage.verify_thumbnail_content(excelPath + fileName, sheetName)
 				, "Thumbnail content went wrong somewhere! Please check the error message on " + fileName);
+	}
+	
+	@AfterMethod
+	public void takeScreenshot (ITestResult result) throws InterruptedException {
+		capture.takeScreenshot(result, "buttonClicks");
 	}
 }
