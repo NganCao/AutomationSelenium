@@ -2,15 +2,12 @@ package Testcases;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import Pages.ButtonPage;
 import Pages.HomePage;
-import Supports.CaptureHelpers;
 import Supports.Setup;
 import Supports.SupportMethods;
 
@@ -20,7 +17,6 @@ public class ButtonClickTest extends Setup {
 	private HomePage homePage;
 	private ButtonPage btnPage;
 	private SupportMethods support;
-	private CaptureHelpers capture;
 	private String currentWindow;
 	//excel file
 	private String fileName = "DataTest.xlsx";
@@ -33,7 +29,6 @@ public class ButtonClickTest extends Setup {
 		homePage = new HomePage(driver);
 		btnPage = new ButtonPage(driver);
 		support = new SupportMethods(driver);
-		capture = new CaptureHelpers(driver);
 	}
 	
 	@Test (priority = 1)
@@ -47,7 +42,7 @@ public class ButtonClickTest extends Setup {
 	public void check_general_infor () throws Exception {
 		support.switchTab(currentWindow);
 		driver.getCurrentUrl();
-		System.out.println("Verify that the general information is correct");
+//		System.out.println("Verify that the general information is correct");
 		SoftAssert softAssert = new SoftAssert();
 //		System.out.println("Verify that the URL is correct");
 		softAssert.assertTrue(btnPage.verifyUrl());
@@ -60,14 +55,9 @@ public class ButtonClickTest extends Setup {
 	
 	@Test (priority = 3) 
 	public void check_thumbnail_sections () throws Exception {
-		System.out.println("Verify that the thumbnail content is correct");
+//		System.out.println("Verify that the thumbnail content is correct");
 //		excel.readExcelFile(excelPath + fileName, sheetName);
 		Assert.assertTrue(btnPage.verify_thumbnail_content(excelPath + fileName, sheetName)
 				, "Thumbnail content went wrong somewhere! Please check the error message on " + fileName);
-	}
-	
-	@AfterMethod
-	public void takeScreenshot (ITestResult result) throws InterruptedException {
-		capture.takeScreenshot(result, "buttonClicks");
 	}
 }

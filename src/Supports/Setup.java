@@ -10,11 +10,11 @@ import org.testng.annotations.Parameters;
 
 public class Setup {
  
-	private WebDriver driver;
+	private static WebDriver driver;
 	private String driverPath = "C:\\Users\\Administrator\\Desktop\\Auto\\chromedriver.exe";
 //	private String baseURL = "http://webdriveruniversity.com";
 	
-	public WebDriver getWebDriver() {
+	public static WebDriver getWebDriver() {
 		return driver;
 	}
 	

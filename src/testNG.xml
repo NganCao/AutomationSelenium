@@ -1,9 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 	<parameter name="baseURL" value="http://webdriveruniversity.com" />
+	<listeners>
+        <listener class-name="Listeners.TestListener"></listener>
+    </listeners>
     <test name="Demo">
         <classes>
-        	
+       		<class name="Testcases.HomePageTest"></class>
+        	<class name="Testcases.ContactUsTest"></class>
+        	<class name="Testcases.LoginPortalTest"></class>
 			<class name="Testcases.ButtonClickTest"></class>
         </classes>
     </test> 

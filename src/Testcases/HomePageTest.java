@@ -3,13 +3,10 @@ package Testcases;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import Pages.ContactUsPage;
 import Pages.HomePage;
 import Supports.Setup;
-import Supports.SupportMethods;
 
 public class HomePageTest extends Setup{
 	

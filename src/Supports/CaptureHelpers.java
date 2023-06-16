@@ -14,7 +14,7 @@ import org.testng.Reporter;
 public class CaptureHelpers {
 
 	private WebDriver driver;
-	private String image_report_folder = System.getProperty("user.dir") + "";
+	private String image_report_folder = System.getProperty("user.dir");
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 	private String folderScreenshot = "\\Report\\Screenshot";
 	private String folderRecord = "\\Report\\Record";
@@ -29,11 +29,10 @@ public class CaptureHelpers {
             try {
                 TakesScreenshot ts = (TakesScreenshot) driver;
                 File source = ts.getScreenshotAs(OutputType.FILE);
-                File theDir = new File(image_report_folder);
+                File theDir = new File(image_report_folder + folderScreenshot);
                 if (!theDir.exists()) {
                     theDir.mkdirs(); //create new folder
                 }
-                // result.getName() lấy tên của test case xong gán cho tên File chụp màn hình
                 FileHandler.copy(source, new File(image_report_folder + folderScreenshot + "\\" + screenName + "_" + dateFormat.format(new Date()) + ".png"));
                 System.out.println("Screenshot taken: " + screenName);
         		Reporter.log("Screenshot taken current URL: " + driver.getCurrentUrl(), true);
