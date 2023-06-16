@@ -17,6 +17,7 @@ public class CaptureHelpers {
 	private String image_report_folder = System.getProperty("user.dir") + "";
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 	private String folderScreenshot = "\\Report\\Screenshot";
+	private String folderRecord = "\\Report\\Record";
 	
 	public CaptureHelpers (WebDriver driver) {
 		this.driver = driver;

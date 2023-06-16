@@ -1,6 +1,5 @@
 package Pages;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
 
 import Supports.ExcelHelpers;
 import Supports.SupportMethods;
@@ -25,8 +23,8 @@ public class ButtonPage {
 	private By header = By.xpath("//div[@id=\"main-header\"]/h1");
 	private String thumbnail_xpath = "//div[@class=\"thumbnail\"]";
 	private By heading_xpath = By.xpath(thumbnail_xpath + "/h2");
-	private By title_xpath = By.xpath(thumbnail_xpath + "//ol");
-	private By button_xpath = By.xpath(thumbnail_xpath + "//span[starts-with(@id,\"button\")]");
+	private By title_xpath = By.xpath("./following-sibling::div//ol"); //child xpath -> findelement by heading xpath
+	private By button_xpath = By.xpath("./following-sibling::div//span[starts-with(@id,\"button\")]");
 	
 	//data test
 	private String header_txt = "Lets Get Clicking!";
@@ -55,9 +53,9 @@ public class ButtonPage {
 		//get title list
 		List<WebElement> heading_list = sp.getListElements(heading_xpath);
 		//get des list
-		List<WebElement> title_list = sp.getChildElementByParent(heading_list, By.xpath("./following-sibling::div//ol"));
+		List<WebElement> title_list = sp.getChildElementByParent(heading_list, title_xpath);
 		//get button list
-		List<WebElement> button_list = sp.getChildElementByParent(heading_list, By.xpath("./following-sibling::div//span[starts-with(@id,\"button\")]"));
+		List<WebElement> button_list = sp.getChildElementByParent(heading_list, button_xpath);
 		
 		//get test data from excel file
 		Map<String, Integer> rowCellMap = excel.getExcelFile(dataFilePath, sheetName);
