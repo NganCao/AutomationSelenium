@@ -194,8 +194,9 @@ public class HomePage {
 		sp.clickBtn(autocomplete_textfield);
 	}
 	
-	public void clickFileUpload() {
+	public FileUploadPage clickFileUpload() {
 		sp.clickBtn(file_upload);
+		return new FileUploadPage(driver);
 	}
 	
 	public void clickDatePicker() {

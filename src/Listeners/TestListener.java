@@ -32,7 +32,8 @@ public class TestListener implements ITestListener {
     	System.out.println("Failed: " + result.getName());
     	CaptureHelpers captureHelpers = new CaptureHelpers(Setup.getWebDriver());
         try {
-            captureHelpers.takeScreenshot(result, result.getName());
+//            captureHelpers.takeScreenshot(result, result.getName());
+        	captureHelpers.take_full_screenshot(result, result.getName());
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
         }

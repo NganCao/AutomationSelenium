@@ -38,7 +38,7 @@ public class ContactUsTest extends Setup{
 	}
 	
 	@Test (priority = 1)
-	public void HomePage() throws Exception {
+	public void navigateToContactUs() throws Exception {
 		homepage = new HomePage(driver);
 
 		currentWindow = driver.getWindowHandle();

@@ -122,8 +122,6 @@ public class ContactUsPage {
 		message_txt = driver.findElement(message_field).getAttribute("value");
 		
 		//verifyText entered
-		System.out.println("Verifty the entered text is correct");
-		
 		Assert.assertEquals(firstName_txt, firstName);
 		Assert.assertEquals(lastName_txt, lastName);
 		Assert.assertEquals(email_txt, email);

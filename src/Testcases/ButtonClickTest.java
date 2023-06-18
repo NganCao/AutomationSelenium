@@ -27,7 +27,6 @@ public class ButtonClickTest extends Setup {
 	public void setUp() {
 		this.driver = getWebDriver();
 		homePage = new HomePage(driver);
-		btnPage = new ButtonPage(driver);
 		support = new SupportMethods(driver);
 	}
 	
@@ -41,7 +40,6 @@ public class ButtonClickTest extends Setup {
 	@Test (priority = 2) 
 	public void check_general_infor () throws Exception {
 		support.switchTab(currentWindow);
-		driver.getCurrentUrl();
 //		System.out.println("Verify that the general information is correct");
 		SoftAssert softAssert = new SoftAssert();
 //		System.out.println("Verify that the URL is correct");

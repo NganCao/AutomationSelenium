@@ -4,12 +4,13 @@
 	<listeners>
         <listener class-name="Listeners.TestListener"></listener>
     </listeners>
-    <test name="Demo">
+    <test name="AutomationSeleniumc">
         <classes>
-       		<class name="Testcases.HomePageTest"></class>
-        	<class name="Testcases.ContactUsTest"></class>
-        	<class name="Testcases.LoginPortalTest"></class>
-			<class name="Testcases.ButtonClickTest"></class>
+       		<class name="Testcases.HomePageTest"/>
+        	<class name="Testcases.ContactUsTest"/>
+        	<class name="Testcases.LoginPortalTest"/>
+			<class name="Testcases.ButtonClickTest"/>
+			<class name="Testcases.UploadFileTest"/>
         </classes>
     </test> 
 </suite>
