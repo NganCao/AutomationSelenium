@@ -17,7 +17,7 @@ public class SupportMethods {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
-	
+
 	public SupportMethods(WebDriver driver) {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -26,12 +26,16 @@ public class SupportMethods {
 	public void waitForElementVisible(By testObject) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(testObject));
 	}
-	
+
+	public void waitFoElementClickable(WebElement testObject) {
+		wait.until(ExpectedConditions.elementToBeClickable(testObject));
+	}
+
 	public String getTitle() {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		return driver.getTitle();
-	}	
-	
+	}
+
 	public List<WebElement> getListElements(By testObject) {
 		List<WebElement> list = new ArrayList<>();
 		try {
@@ -39,7 +43,8 @@ public class SupportMethods {
 			for (WebElement e : driver.findElements(testObject)) {
 				if (e.isDisplayed()) {
 					list.add(e);
-				} else list.add(null);
+				} else
+					list.add(null);
 			}
 		} catch (Exception e) {
 			list = null;
@@ -47,18 +52,18 @@ public class SupportMethods {
 		}
 		return list;
 	}
-	
-	public WebElement getElement (By testObject) {
+
+	public WebElement getElement(By testObject) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(testObject));
 		return driver.findElement(testObject);
 	}
-	
-	public boolean checkElementIsdisplay (By testObject) {
+
+	public boolean checkElementIsdisplay(By testObject) {
 		WebElement e = getElement(testObject);
 		return e.isDisplayed();
 	}
-	
-	public List<WebElement> getChildElementByParent (List<WebElement> parent_list, By child) {
+
+	public List<WebElement> getChildElementByParent(List<WebElement> parent_list, By child) {
 		List<WebElement> child_list = new ArrayList<>();
 		WebElement element;
 		for (WebElement e : parent_list) {
@@ -73,16 +78,17 @@ public class SupportMethods {
 		}
 		return child_list;
 	}
-	
+
 	/**
 	 * click the specified button
+	 * 
 	 * @param testObject
 	 */
-	public void clickBtn (By testObject) {
+	public void clickBtn(By testObject) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(testObject));
 		driver.findElement(testObject).click();
 	}
-	
+
 	/**
 	 * 
 	 * @param testObject
@@ -92,12 +98,12 @@ public class SupportMethods {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(testObject));
 		driver.findElement(testObject).sendKeys(key);
 	}
-	
+
 	public void closeAllOpenTabExceptMainTab(String currentTab) {
-		//get all new open tab
+		// get all new open tab
 		Set<String> openTabs = driver.getWindowHandles();
-				
-		for(String tab : openTabs) {
+
+		for (String tab : openTabs) {
 			if (!tab.equals(currentTab)) {
 				driver.switchTo().window(tab);
 				driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(2));
@@ -106,27 +112,28 @@ public class SupportMethods {
 		}
 		driver.switchTo().window(currentTab);
 	}
-	
+
 	public void switchTab(String currentTab) {
-		//get all new open tab
+		// get all new open tab
 		Set<String> openTabs = driver.getWindowHandles();
-		
-		for(String tab : openTabs) {
+
+		for (String tab : openTabs) {
 			if (!tab.equals(currentTab)) {
 				driver.switchTo().window(tab);
 				driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(2));
 			}
 		}
 	}
-	
+
 	public void switchBackCurrentTab(String currentTab) {
 		driver.close();
 		driver.switchTo().window(currentTab);
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(2));
 	}
-	
+
 	/**
 	 * verify the current url contains the base url
+	 * 
 	 * @param url
 	 * @return
 	 */
@@ -134,9 +141,10 @@ public class SupportMethods {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		return driver.getCurrentUrl().contains(url);
 	}
-	
+
 	/**
 	 * verify text of the checking element
+	 * 
 	 * @param testObject
 	 * @param expected
 	 * @return
@@ -145,24 +153,24 @@ public class SupportMethods {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(testObject));
 		return driver.findElement(testObject).getText().equals(expected);
 	}
-	
+
 	private String getPlaceHolder(By testObject) {
 		return driver.findElement(testObject).getAttribute("placeholder");
 	}
-	
+
 	public void verifyPlaceHolder(By testObject, String expectedText) {
 		Assert.assertEquals(getPlaceHolder(testObject), expectedText);
 	}
-	
+
 	private String getButton_value(By testObject) {
 		waitForElementVisible(testObject);
 		return driver.findElement(testObject).getAttribute("value");
 	}
-	
+
 	public void verifyButton_value(By testObject, String expectedValue) {
 		Assert.assertEquals(getButton_value(testObject), expectedValue);
 	}
-	
+
 	/**
 	 * 
 	 * @param str
@@ -173,20 +181,22 @@ public class SupportMethods {
 	public String replaceString(String str, String replaceOld, String replaceNew) {
 		return str.replaceAll(replaceOld, replaceNew);
 	}
-	
-	public void compare_2_list_strings (List<String> list1, List<String> list2, int startPosition, String equalsNotEquals) {
-		if(list1.size() == list2.size()) {
-			if(equalsNotEquals.equals("equals")) {
-				for(int i = startPosition; i <= list1.size(); i++) {
-					Assert.assertEquals(list1.get(i).trim(), list2.get(i).trim(), "In position " + i + " doesn't match.");
+
+	public void compare_2_list_strings(List<String> list1, List<String> list2, int startPosition,
+			String equalsNotEquals) {
+		if (list1.size() == list2.size()) {
+			if (equalsNotEquals.equals("equals")) {
+				for (int i = startPosition; i <= list1.size(); i++) {
+					Assert.assertEquals(list1.get(i).trim(), list2.get(i).trim(),
+							"In position " + i + " doesn't match.");
 				}
 			} else {
-				for(int i = startPosition; i < list1.size(); i++) {
-					Assert.assertEquals(list1.get(i).trim(), list2.get(i).trim(), "In position " + i + " doesn't match.");
+				for (int i = startPosition; i < list1.size(); i++) {
+					Assert.assertEquals(list1.get(i).trim(), list2.get(i).trim(),
+							"In position " + i + " doesn't match.");
 				}
-			}	
+			}
 		}
 	}
-	
-	
+
 }

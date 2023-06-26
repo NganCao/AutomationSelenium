@@ -2,15 +2,16 @@
 <suite name="Suite">
 	<parameter name="baseURL" value="http://webdriveruniversity.com" />
 	<listeners>
-        <listener class-name="Listeners.TestListener"></listener>
-    </listeners>
-    <test name="AutomationSeleniumc">
-        <classes>
-       		<class name="Testcases.HomePageTest"/>
-        	<class name="Testcases.ContactUsTest"/>
-        	<class name="Testcases.LoginPortalTest"/>
-			<class name="Testcases.ButtonClickTest"/>
-			<class name="Testcases.UploadFileTest"/>
-        </classes>
-    </test> 
+		<listener class-name="Listeners.TestListener"></listener>
+	</listeners>
+	<test name="AutomationSeleniumc">
+		<classes>
+			<class name="Testcases.HomePageTest" />
+			<class name="Testcases.ContactUsTest" />
+			<class name="Testcases.LoginPortalTest" />
+			<class name="Testcases.ButtonClickTest" />
+			<class name="Testcases.UploadFileTest" />
+			<class name="Testcases.ActionsTest" />
+		</classes>
+	</test>
 </suite>

@@ -166,8 +166,9 @@ public class HomePage {
 		sp.clickBtn(ajaxLoader);
 	}
 	
-	public void clickActions() {
+	public ActionsPage clickActions() {
 		sp.clickBtn(actions);
+		return new ActionsPage(driver);
 	}
 	
 	public void clickScrollAround() {

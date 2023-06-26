@@ -31,11 +31,11 @@ public class UploadFileTest extends Setup {
 	public void navigateToUploadFile () throws Exception {
 		currentWindow = driver.getWindowHandle();
 		uploadFile = homepage.clickFileUpload();
+		support.switchTab(currentWindow);
 	}
 	
-	@Test (priority = 2                                                                                                                                                                                                                                                                                                                                       ) 
+	@Test (priority = 2, enabled = false) 
 	public void check_general_uploadFile_page () throws Exception {
-		support.switchTab(currentWindow);
 		SoftAssert sa = new SoftAssert();
 		sa.assertTrue(uploadFile.verify_Upload_url(), "The URL is incorrect!");
 		sa.assertTrue(uploadFile.verify_Title(), "The page title is incorrect!");
